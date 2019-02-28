@@ -14,24 +14,22 @@ file_path=os.path.join("..","Resources","budget_data.csv")
 
 with open(file_path,newline='') as budget_csv:
     budget_reader=csv.reader(budget_csv,delimiter=',')
-    #take out header
+    #remove header
     budget_header=next(budget_reader)
 
-    for i in budget_reader:
-        #total number of months
+    #calcute total number of months, total amount of prof/loss and make lists of dates and prof/loss
+    for line in budget_reader:
         month+=1
-        #total amount of profit/losses
-        total_amount+=int(i[1])
-        #make lists of dates and profit/losses
-        total_change.append(int(i[1]))
-        date.append(i[0])
+        total_amount+=int(line[1])
+        total_change.append(int(line[1]))
+        date.append(line[0])
 
+#iterate through list of profit/losses to calculate change
 for i in range(1,len(total_change)):
-    #iterate through list of profit/losses to calculate change
     total_change_av.append(total_change[i]-total_change[i-1])
 
+#calculate sum of changes
 for i in total_change_av:
-    #calculate sum of changes
     total_change_av_sum+=i
 
 #calculate avg of changes    
