@@ -40,10 +40,10 @@ max_inc=max(total_change_av)
 min_inc=min(total_change_av)
 
 #search for dates of max and min
-for i in range(1,len(total_change_av)):
+for i in range(len(total_change_av)):
     if total_change_av[i]==max_inc:
         max_date=date[i+1]
-for i in range(1,len(total_change_av)):
+for i in range(len(total_change_av)):
     if total_change_av[i]==min_inc:
         min_date=date[i+1]
 
