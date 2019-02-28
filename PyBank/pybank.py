@@ -17,7 +17,7 @@ with open(file_path,newline='') as budget_csv:
     #remove header
     budget_header=next(budget_reader)
 
-    #calcute total number of months, total amount of prof/loss and make lists of dates and prof/loss
+    #calculate total number of months, total amount of prof/loss and make lists of dates and prof/loss
     for line in budget_reader:
         month+=1
         total_amount+=int(line[1])
